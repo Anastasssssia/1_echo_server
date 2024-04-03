@@ -1,16 +1,16 @@
+
 import socket
-from time import sleep
+
+host = input("Enter server hostname or IP address: ")
+port = int(input("Enter server port: "))
 
 sock = socket.socket()
-sock.setblocking(1)
-sock.connect(('10.38.165.12', 9090))
+sock.connect((host, port))
 
-#msg = input()
-msg = "Hi!"
+msg = input("Enter your message: ")
 sock.send(msg.encode())
 
 data = sock.recv(1024)
+print(data.decode())
 
 sock.close()
-
-print(data.decode())
