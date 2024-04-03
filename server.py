@@ -9,7 +9,7 @@ print(addr)
 msg = ''
 
 while True:
-	data = conn.recv(1024)
+	data = conn.recv()
 	if not data:
 		break
 	msg += data.decode()
