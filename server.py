@@ -11,7 +11,6 @@ def find_free_port(start_port):
         except OSError:
             print(f"Port {port} is already in use, trying the next one...")
             port += 1
-
 sock, port = find_free_port(9090)
 sock.listen(0)
 conn, addr = sock.accept()
@@ -24,5 +23,4 @@ while True:
     	if not data:
         	break
     	conn.send(data.upper())
-
 conn.close()
